@@ -6,6 +6,9 @@ const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
+// require for route can call app.js
+require('./routes')(app);
+
 // get path localhost for send request to http
 app.get('/status', function (req, res){
     res.send('hello node server is running......');
