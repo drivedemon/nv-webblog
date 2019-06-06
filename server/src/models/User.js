@@ -1,3 +1,4 @@
+// create table name and field in database 
 module.exports = (sequelize, DataTypes) => {
     const User = sequelize.define('User', {
         email: DataTypes.STRING,

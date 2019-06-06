@@ -1,3 +1,4 @@
+// call model from usercontroller and send data to database
 const fs = require('fs');
 const path = require('path');
 const Sequelize = require('sequelize');

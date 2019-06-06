@@ -1,3 +1,4 @@
+// config file for connect & create database
 module.exports = {
     port: 8082,
     db: {

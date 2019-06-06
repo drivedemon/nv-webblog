@@ -12,7 +12,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 // require for route can call app.js
 require('./routes')(app);
 
-// get path localhost for send request to http
+// get path localhost for send request to http ================== create URL
 app.get('/status', function (req, res){
     res.send('hello node server is running......');
 })
@@ -43,6 +43,7 @@ app.get('/user/:userId', function (req, res) {
 
 let port = process.env.PORT || config.port;
 
+// run server by function sequelize for check condition if have not database == create else call app.listen 
 sequelize.sync({force: false}).then(() => {
     app.listen(port, function() {
         console.log('server run port : '+port);
