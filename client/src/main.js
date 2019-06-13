@@ -8,8 +8,8 @@ Vue.config.productionTip = false
 
 /* eslint-disable no-new */
 new Vue({
-  el: '#app',
-  router,
-  components: { App },
-  template: '<App/>'
+  el: '#app', // ให้มองหา id=”app” ใน index.html แล้ว render
+  router, //  เชื่อมโยงกับ router ที่โหลดมา
+  components: { App }, // ใช้ component นี้ไป render
+  template: '<App/>' //  บอกว่า App คือ component
 })
