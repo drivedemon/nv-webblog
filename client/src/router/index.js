@@ -7,14 +7,17 @@ import UserCreate from '@/components/User/CreateUser'
 import UserEdit from '@/components/User/EditUser' 
 import UserShow from '@/components/User/ShowUser'
 
+// Authen
+import Login from '@/components/Login'
+
 Vue.use(Router)
 
 export default new Router({
   routes: [
     {
-      path: '/users',
-      name: 'users',
-      component: UserIndex
+      path: '/users', // path url
+      name: 'users', // call by name
+      component: UserIndex // sync to file
     },
     {
       path: '/user/create',
@@ -30,6 +33,11 @@ export default new Router({
       path: '/user/:userId',
       name: 'user',
       component: UserShow
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component: Login
     },
 
   ]
