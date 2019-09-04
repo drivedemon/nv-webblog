@@ -1,9 +1,9 @@
 // code for html language
 <template>
 <div>    
-    <div v-for="index in 10" :key="index" >
+    <!-- <div v-for="index in 10" :key="index" >
         <p v-if="index >= 5">ID : {{index}}</p>
-    </div>
+    </div> -->
     <h1>Get All Users</h1>
     <h4>จำนวนผู้ใช้งาน {{ users.length }}</h4>
     <button @click="navigateTo('/user/create')">button create user</button>    

@@ -1,0 +1,12 @@
+module.exports = (sequelize, DataTypes) => {
+    const Blog = sequelize.define('Blog', {
+        title: DataTypes.STRING,
+        thumbnail: DataTypes.STRING,
+        picture: DataTypes.STRING,
+        content: DataTypes.TEXT,
+        category: DataTypes.STRING,
+        status: DataTypes.STRING,
+        updateby: DataTypes.STRING
+    })
+    return Blog
+}

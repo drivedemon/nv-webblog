@@ -13,7 +13,7 @@ import UsersService from '@/services/UsersService'
 export default {
     data () {
         return {
-            user: null
+            user: ''
         }
     },
     async created () {

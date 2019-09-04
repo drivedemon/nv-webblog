@@ -5,6 +5,10 @@ const BlogController = require('./controllers/BlogController')
 
 module.exports = (app) => {
     // RESTFUL API for users management
+
+    // get data from user login
+    app.post('/login', UserAuthenController.login)
+    
     // User route
     // create user
     app.post('/user', UserController.create)
@@ -16,14 +20,12 @@ module.exports = (app) => {
     app.get('/user/:userId', UserController.show)
     // get  all user
     app.get('/users', isAuthenController, UserController.index)    
-    // get data from user login
-    app.post('/login', UserAuthenController.login)
 
     // Blog route
     // create blog
     app.post('/blog', BlogController.create)
     // update blog
-    app.put('/blog/:blogId', BlogController.put)
+    app.put('/blog/:blogId', BlogController.update)
     // delete blog
     app.delete('/blog/:blogId', BlogController.remove)
     // get blog by id

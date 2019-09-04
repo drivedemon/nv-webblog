@@ -26,7 +26,7 @@ module.exports = {
     },
     
     // edit blog,suspend,active 
-    async put(req, res) {
+    async update(req, res) {
         try {
             await Blog.update(req.body, {
                 where: {
@@ -68,11 +68,11 @@ module.exports = {
     // get blog by id
     async show(req, res) {
         try {
-            const blog = await Blog.findById(req.params.blogId)
+            const blog = await Blog.findByPk(req.params.blogId)
             res.send(blog)
         } catch (err) {
             res.status(500).send({
-                error: 'the blogs information was correct'
+                error: 'the blogs information was correct by id'
             })
         }
     }
