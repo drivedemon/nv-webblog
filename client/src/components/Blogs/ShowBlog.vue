@@ -24,7 +24,6 @@ export default {
     async created () {
         try {
             let blogId = this.$route.params.blogId
-            console.log(blogId)
             this.blog = (await BlogsService.show(blogId)).data
         } catch (err) {
             console.log(err)

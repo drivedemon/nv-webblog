@@ -2,6 +2,7 @@ const UserController = require('./controllers/UserController')
 const UserAuthenController = require('./controllers/UserAuthenController')
 const isAuthenController = require('./authen/isAuthenController')
 const BlogController = require('./controllers/BlogController')
+const CommentController = require('./controllers/CommentController')
 
 module.exports = (app) => {
     // RESTFUL API for users management
@@ -32,4 +33,16 @@ module.exports = (app) => {
     app.get('/blog/:blogId', BlogController.show)
     // get all blogs
     app.get('/blogs', BlogController.index)
+
+    // Comment route
+    // create comment
+    app.post('/comment', CommentController.create)
+    // update comment
+    app.put('/comment/:commentId', CommentController.update)
+    // delete comment
+    app.delete('/comment/:commentId', CommentController.remove)
+    // get comment by id
+    app.get('/comment/:commentId', CommentController.show)
+    // get all comments
+    app.get('/comments', CommentController.index)
 }

@@ -6,7 +6,7 @@ module.exports = (sequelize, DataTypes) => {
         content: DataTypes.TEXT,
         category: DataTypes.STRING,
         status: DataTypes.STRING,
-        updateby: DataTypes.STRING
+        userId: DataTypes.STRING
     })
     return Blog
 }

@@ -6,8 +6,7 @@
     </div> -->
     <h1>Get All Users</h1>
     <h4>จำนวนผู้ใช้งาน {{ users.length }}</h4>
-    <button @click="navigateTo('/user/create')">button create user</button>    
-    <button @click="logout">Logout</button>
+    <button @click="navigateTo('/user/create')">button create user</button>
     <!-- <div v-if="users.length"> -->
     <div v-for="fuserr in users" v-bind:key="fuserr.id">
         <p>ID : {{fuserr.id}}</p>
@@ -56,13 +55,6 @@ export default {
         },
         async refreshData () {
             this.users = (await UsersService.index()).data
-        },
-        logout () {
-            this.$store.dispatch('setToken', null)
-            this.$store.dispatch('setUser', null)
-            this.$router.push({
-                name: 'login'
-            })
         },
     }
 }
