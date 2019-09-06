@@ -14,6 +14,7 @@ import Login from '@/components/Login'
 import CommentIndex from '@/components/Comments/Index'
 
 // Blog
+import MyBlogs from '@/components/Blogs/myblogs'
 import BlogIndex from '@/components/Blogs/Index'
 import BlogCreate from '@/components/Blogs/CreateBlog'
 import BlogEdit from '@/components/Blogs/EditBlog'
@@ -25,6 +26,11 @@ export default new Router({
   mode: 'history', // mode for hide '#' in URL
   routes: [
     // blogs
+    {
+      path: '/myblogs', // path url
+      name: 'myblogs', // call by name
+      component: MyBlogs // sync to file
+    },
     {
       path: '/blogs', // path url
       name: 'blogs', // call by name
@@ -78,6 +84,5 @@ export default new Router({
       name: 'login', // call by name
       component: Login // sync to file
     },
-
   ]
 })

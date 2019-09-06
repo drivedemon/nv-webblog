@@ -16,4 +16,7 @@ export default {
     delete (blog) {
         return Api().delete('blog/'+blog.id, blog)
     },
+    myblog (userId) {
+        return Api().get('myblogs/'+userId)
+    },
 }

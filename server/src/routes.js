@@ -33,6 +33,8 @@ module.exports = (app) => {
     app.get('/blog/:blogId', BlogController.show)
     // get all blogs
     app.get('/blogs', BlogController.index)
+    // get my blogs
+    app.get('/myblogs/:userId', BlogController.myblog)
 
     // Comment route
     // create comment

@@ -9,7 +9,6 @@
 // code for javascript vue
 <script>
 import UsersService from '@/services/UsersService'
-
 export default {
     data () {
         return {

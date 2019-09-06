@@ -6,16 +6,14 @@
             <p>content: <input type="text" v-model="blog.content"></p>
             <p>category: <input type="text" v-model="blog.category"></p>
             <p>status: <input type="text" v-model="blog.status"></p>
-            <p><input type="text" v-model="user.userId" style="display:"></p>
             <p><button type="submit">create blog</button></p>
         </form>
     </div>
 </template>
 <script>
 import BlogsService from '@/services/BlogsService'
-import UsersService from '@/services/UsersService'
+import {mapState} from 'vuex'
 
-                localStorage.setItem('key', 'value')
 export default {
     data() {
         return {
@@ -27,30 +25,28 @@ export default {
                 category: '',
                 status: 'saved',
                 userId: ''
-            },
-            user: ''
+            }
         }
     },
     methods: {
         async createBlog() {
             try {
+                this.blog.userId = this.user.id
                 await BlogsService.post(this.blog)
                 this.$router.push({
                     name: 'blogs'
-                })
+                })            
             } catch (err) {
                 console.log(err)
             }
-        },
-        async created() {
-            try {
-                // user = localStorage.getItem('id')
-                // console.log(user+'ss')
-            } catch (error) {
-                console.log(error)
-            }
         }
-    }
+    },
+    computed: {
+        ...mapState([
+        'isUserLoggedIn',
+        'user'
+        ])
+    },
 }
 </script>
 <style scoped>

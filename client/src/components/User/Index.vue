@@ -56,7 +56,7 @@ export default {
         async refreshData () {
             this.users = (await UsersService.index()).data
         },
-    }
+    },
 }
 </script>
 // css style

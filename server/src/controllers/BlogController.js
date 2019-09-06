@@ -75,5 +75,21 @@ module.exports = {
                 error: 'the blogs information was correct by id'
             })
         }
+    },
+
+    // get myblog by id
+    async myblog(req, res) {
+        try {
+            const blog = await Blog.findAll({
+                where: {
+                    userId: req.params.userId
+                }
+            })
+            res.send(blog)
+        } catch (err) {
+            res.status(500).send({
+                error: 'the blogs information was correct by id'
+            })
+        }
     }
 }

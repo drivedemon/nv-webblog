@@ -3,10 +3,11 @@
         <div class="nv-navbar">
             <ul class="nav">
                 <li><router-link :to="{name: 'blogs'}" >Blogs</router-link></li>
-                <li><router-link :to="{name: 'blogs'}" >My Blogs</router-link></li>
+                <li><router-link :to="{name: 'myblogs'}" >My Blogs</router-link></li>
                 <li><router-link :to="{name: 'users'}">Users</router-link></li>
                 <li><router-link :to="{name: 'comments'}">Comments</router-link></li>
-                <li><router-link :to="{name: 'login'}">Login</router-link></li>
+                <li v-if="!isUserLoggedIn"><router-link :to="{name: 'login'}">Login</router-link></li>
+                <li v-if="isUserLoggedIn"><router-link :to="{name: 'login'}">{{user.name}}</router-link></li>
                 <li><a v-on:click.prevent="logout" herf="#" style="cursor: pointer;">Logout</a></li>
             </ul>
             <div class="clearfix"></div>
@@ -14,6 +15,8 @@
     </div>
 </template>
 <script>
+import {mapState} from 'vuex'
+
 export default {
     methods: {
         logout() {
@@ -23,7 +26,13 @@ export default {
                 name: 'login'
             })
         }
-    }
+    },    
+    computed: {
+        ...mapState([
+        'isUserLoggedIn',
+        'user'
+        ])
+    },
 }
 </script>
 <style scoped>
